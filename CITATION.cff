@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the SWS-TER manuscript."
+title: "SWS-TER: Sparse Weakly Semi-supervised Tri-Evidence Recovery"
+type: software
+version: 1.0.0
+date-released: 2026-08-17
+license: Apache-2.0
+authors:
+  - family-names: He
+    given-names: Yucong
+  - family-names: Gao
+    given-names: Gui
+  - family-names: Zhang
+    given-names: Tianwen
+  - family-names: He
+    given-names: Dunyun

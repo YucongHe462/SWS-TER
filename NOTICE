@@ -1,0 +1,19 @@
+SWS-TER
+Copyright 2026
+
+This distribution contains code derived from MMDetection and MMRotate,
+Copyright OpenMMLab, licensed under Apache License 2.0.  Original licenses are
+preserved in licenses/MMDetection-LICENSE and licenses/MMRotate-LICENSE.
+
+Portions of the sparse weak teacher-student training path are adapted from
+SPWOOD. Please cite Zhang et al., "SPWOOD: Sparse Partial Weakly-Supervised
+Oriented Object Detection," arXiv:2602.03634, 2026.
+
+Weak geometric supervision components are adapted from the public H2RBox-v2
+and Point2RBox-v2 implementations. Their method names are retained here only
+for source attribution; SWS-TER runtime modules use project-specific names.
+
+The compact convolutional blocks in the SAR boundary extractor are adapted
+from the MIT-licensed TEED implementation by Xavier Soria Poma. The original
+license is preserved in licenses/TEED-LICENSE. The external method name is
+retained only in this attribution notice and its license filename.
