@@ -13,12 +13,11 @@
   <img src="https://img.shields.io/badge/Python-3.9-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.9">
   <img src="https://img.shields.io/badge/PyTorch-1.13.1-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch 1.13.1">
   <img src="https://img.shields.io/badge/CUDA-11.6-76B900?style=flat-square&logo=nvidia&logoColor=white" alt="CUDA 11.6">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-blue?style=flat-square" alt="Apache-2.0 License"></a>
 </p>
 
 <p align="center">
-  <a href="https://drive.google.com/drive/folders/10dqewpIj7hA5NvQ7XihiB9I73-Kkzptb?usp=sharing">
-    <img src="https://img.shields.io/badge/Dataset-Shared_Folder-2E8B57?style=for-the-badge&logo=googledrive&logoColor=white" alt="Download the shared SWS-TER dataset">
+  <a href="https://drive.google.com/file/d/1-jJ_NxLoizAElMlTl6Aaf4Sn2zxAW-PI/view?usp=drive_link">
+    <img src="https://img.shields.io/badge/Dataset-Download-2E8B57?style=for-the-badge&logo=googledrive&logoColor=white" alt="Download the shared SWS-TER dataset">
   </a>
 </p>
 
@@ -88,19 +87,19 @@ The dataset used in this work is publicly shared for benchmarking and
 reproducibility.
 
 **Shared download link:**
-[Open the SWS-TER dataset shared folder](https://drive.google.com/drive/folders/10dqewpIj7hA5NvQ7XihiB9I73-Kkzptb?usp=sharing)
+[Download the SWS-TER dataset](https://drive.google.com/file/d/1-jJ_NxLoizAElMlTl6Aaf4Sn2zxAW-PI/view?usp=drive_link)
 
-> 📌 **Access note:** The hyperlink above is the complete shared-folder URL,
-> including the `usp=sharing` parameter. Dataset files are not stored in this
-> Git repository.
+> 📌 **Access note:** The hyperlink above is the complete shared-file URL.
+> Dataset files are not stored in this Git repository.
 
 ---
 
 ## ⚙️ Data preparation and Stage I priors
 
-The network accepts ordinary single-channel SAR tiles. They remain
-single-channel for SAR evidence computation and are replicated only at the
-ImageNet-pretrained ResNet stem.
+The polarimetric components `Pd`, `Pv` and `Sa` described in the manuscript
+are compressed during data preparation into one single-channel product,
+denoted as `Pd_Pv_Sa`. The released OSPAN configuration loads this
+single-channel representation directly as the network input.
 
 Set `SWS_TER_DATA_ROOT` to the directory containing `semi_ratio_20`,
 `test_image` and `test_annotation`, then verify the released split:
@@ -196,15 +195,8 @@ inference and model parameter counts.
 
 ---
 
-## 📌 Citation
+## 📄 Third-party attribution
 
-If you find this repository useful in your research, please cite the SWS-TER
-manuscript. Machine-readable citation metadata is provided in `CITATION.cff`.
-
----
-
-## 📄 License and attribution
-
-SWS-TER is released under the Apache License 2.0. Bundled OpenMMLab-derived
-code retains its original Apache-2.0 notices under `licenses/`. Third-party
-code attribution is recorded in `NOTICE`.
+Bundled OpenMMLab- and TEED-derived components retain their original license
+notices under `licenses/`. Detailed third-party attribution is recorded in
+`NOTICE`.

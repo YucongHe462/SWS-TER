@@ -176,6 +176,7 @@ weak_pipeline_unlabeled = [
     dict(type='ExtraAttrs', tag='unsup_weak_unlabeled'),
 ]
 unsup_pipeline_unlabeled = [
+    # Pd, Pv and Sa are fused offline into the single-channel Pd_Pv_Sa product.
     dict(type='LoadImageFromFile', color_type='grayscale'),
     dict(type='LoadAnnotations', with_bbox=True),
     dict(
@@ -186,6 +187,7 @@ unsup_pipeline_unlabeled = [
         is_seq=True),
 ]
 sup_pipeline = [
+    # Pd, Pv and Sa are fused offline into the single-channel Pd_Pv_Sa product.
     dict(type='LoadImageFromFile', color_type='grayscale'),
     dict(type='LoadAnnotations', with_bbox=True),
     dict(
@@ -213,6 +215,7 @@ sup_pipeline = [
                    'img_norm_cfg', 'tag'))
 ]
 test_pipeline = [
+    # Pd, Pv and Sa are fused offline into the single-channel Pd_Pv_Sa product.
     dict(type='LoadImageFromFile', color_type='grayscale'),
     dict(
         type='MultiScaleFlipAug',

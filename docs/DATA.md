@@ -17,10 +17,11 @@ running configuration, training, or evaluation commands. The released local
 split contains 452 labeled training images, 1,810 unlabeled training images,
 and 565 test images. Images use the `.jpg` suffix.
 
-The default loader reads each SAR tile as grayscale. `SWSterStudent` preserves
-that single channel for PSKG/SAR evidence and repeats it only at the pretrained
-ResNet input boundary. Optional Xpol/covariance preparation tools are included
-but are deliberately not a prerequisite for the single-channel network path.
+The manuscript-side `Pd`, `Pv` and `Sa` components are compressed during data
+preparation into the single-channel product denoted as `Pd_Pv_Sa`. The default
+loader reads this fused product as grayscale and uses it as the direct network
+input. Optional Xpol/covariance preparation tools remain available for ACPC
+analysis.
 
 `a%-b%` means that `a%` of training images are initially labeled and only
 `b%` of instances in those images are retained. The other training images

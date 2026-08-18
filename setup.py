@@ -9,6 +9,4 @@ setup(
     packages=find_packages(include=(
         'projects*', 'semi_mmrotate*', 'mmdet*', 'mmrotate*')),
     include_package_data=True,
-    license='Apache-2.0',
 )
-
