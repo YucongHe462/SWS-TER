@@ -87,7 +87,8 @@ def _check_eq33_gate(head):
 
 def main():
     config = Config.fromfile(str(
-        ROOT / "configs" / "sws_ter" / "sws_ter_ospan_hbox_20_20.py"))
+        ROOT / "configs" / "sws_ter" /
+        "sws_ter_Pd_Pv_Sa_hbox_20_20.py"))
     import_modules_from_strings(**config.custom_imports)
     # A smoke test must not download ImageNet weights.
     config.model.model.backbone.init_cfg = None

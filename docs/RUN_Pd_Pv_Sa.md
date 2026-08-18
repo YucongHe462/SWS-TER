@@ -1,4 +1,4 @@
-# Running every stage on OSPAN
+# Running every stage on Pd_Pv_Sa
 
 The commands below use PowerShell and must be run from the repository root.
 The dataset root is the directory that contains both `semi_ratio_20` and
@@ -17,11 +17,11 @@ For later sessions, only `conda activate` and `Set-Location` are required.
 ## 1. Select and verify the data
 
 ```powershell
-$DataRoot = 'D:\datasets\ospan'
+$DataRoot = 'D:\datasets\Pd_Pv_Sa'
 $TrainSplit = Join-Path $DataRoot 'semi_ratio_20\sparse_ratio_20'
 $env:SWS_TER_DATA_ROOT = $DataRoot
 
-python tools\verify_ospan_data.py `
+python tools\verify_Pd_Pv_Sa_data.py `
   --data-root $DataRoot `
   --expect-counts
 ```
@@ -69,7 +69,7 @@ the student inference branch and the parameter counts reported in Table 9.
 
 ```powershell
 python tools\train.py `
-  configs\sws_ter\sws_ter_ospan_hbox_20_20.py `
+  configs\sws_ter\sws_ter_Pd_Pv_Sa_hbox_20_20.py `
   --work-dir work_dirs\sws_ter_burnin `
   --no-validate `
   --cfg-options `
@@ -84,7 +84,7 @@ Iterations 1-12,800 use only the labeled branch. The expected checkpoint is
 
 ```powershell
 python tools\train.py `
-  configs\sws_ter\sws_ter_ospan_hbox_20_20.py `
+  configs\sws_ter\sws_ter_Pd_Pv_Sa_hbox_20_20.py `
   --work-dir work_dirs\sws_ter_full `
   --resume-from work_dirs\sws_ter_burnin\iter_12800.pth
 ```
@@ -98,7 +98,7 @@ Stages II and III can also run without an intermediate stop:
 
 ```powershell
 python tools\train.py `
-  configs\sws_ter\sws_ter_ospan_hbox_20_20.py `
+  configs\sws_ter\sws_ter_Pd_Pv_Sa_hbox_20_20.py `
   --work-dir work_dirs\sws_ter_full
 ```
 
@@ -106,7 +106,7 @@ python tools\train.py `
 
 ```powershell
 python tools\test.py `
-  configs\sws_ter\sws_ter_ospan_hbox_20_20.py `
+  configs\sws_ter\sws_ter_Pd_Pv_Sa_hbox_20_20.py `
   work_dirs\sws_ter_full\latest.pth `
   --eval mAP `
   --work-dir work_dirs\sws_ter_full\evaluation
@@ -137,13 +137,13 @@ $SmokeOptions = @(
 )
 
 python tools\train.py `
-  configs\sws_ter\sws_ter_ospan_hbox_20_20.py `
+  configs\sws_ter\sws_ter_Pd_Pv_Sa_hbox_20_20.py `
   --work-dir work_dirs\runtime_check_burnin `
   --no-validate `
   --cfg-options @SmokeOptions runner.max_iters=1
 
 python tools\train.py `
-  configs\sws_ter\sws_ter_ospan_hbox_20_20.py `
+  configs\sws_ter\sws_ter_Pd_Pv_Sa_hbox_20_20.py `
   --work-dir work_dirs\runtime_check_full `
   --resume-from work_dirs\runtime_check_burnin\iter_1.pth `
   --no-validate `

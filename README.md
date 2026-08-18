@@ -96,17 +96,12 @@ reproducibility.
 
 ## ⚙️ Data preparation and Stage I priors
 
-The polarimetric components `Pd`, `Pv` and `Sa` described in the manuscript
-are compressed during data preparation into one single-channel product,
-denoted as `Pd_Pv_Sa`. The released OSPAN configuration loads this
-single-channel representation directly as the network input.
-
 Set `SWS_TER_DATA_ROOT` to the directory containing `semi_ratio_20`,
 `test_image` and `test_annotation`, then verify the released split:
 
 ```powershell
-$env:SWS_TER_DATA_ROOT = 'D:\datasets\ospan'
-python tools\verify_ospan_data.py `
+$env:SWS_TER_DATA_ROOT = 'D:\datasets\Pd_Pv_Sa'
+python tools\verify_Pd_Pv_Sa_data.py `
   --data-root $env:SWS_TER_DATA_ROOT `
   --expect-counts
 ```
@@ -117,7 +112,7 @@ To rebuild the split from Pascal VOC XML files instead:
 python tools/prepare_gr_dataset.py \
   --images data/raw/sar_gray \
   --annotations data/raw/Annotations \
-  --out-dir data/ospan_sws_ter \
+  --out-dir data/Pd_Pv_Sa \
   --seed 42
 ```
 
@@ -143,14 +138,14 @@ retained for ablation studies but are not required by the single-channel path.
 
 ## 🚦 Training and evaluation
 
-The released OSPAN 20%-image / 20%-instance HBox configuration is:
+The released `Pd_Pv_Sa` 20%-image / 20%-instance HBox configuration is:
 
 ```bash
-python tools/train.py configs/sws_ter/sws_ter_ospan_hbox_20_20.py \
-  --work-dir work_dirs/sws_ter_ospan_hbox_20_20
+python tools/train.py configs/sws_ter/sws_ter_Pd_Pv_Sa_hbox_20_20.py \
+  --work-dir work_dirs/sws_ter_Pd_Pv_Sa_hbox_20_20
 
-python tools/test.py configs/sws_ter/sws_ter_ospan_hbox_20_20.py \
-  work_dirs/sws_ter_ospan_hbox_20_20/latest.pth \
+python tools/test.py configs/sws_ter/sws_ter_Pd_Pv_Sa_hbox_20_20.py \
+  work_dirs/sws_ter_Pd_Pv_Sa_hbox_20_20/latest.pth \
   --eval mAP
 ```
 
@@ -160,7 +155,7 @@ decay `0.05`, linear warm-up and gradient clipping at norm 35. Inference uses
 the student branch.
 
 For separate Stage II/Stage III commands and a short end-to-end runtime check,
-see `docs/RUN_OSPAN.md`.
+see `docs/RUN_Pd_Pv_Sa.md`.
 
 ---
 
@@ -191,7 +186,7 @@ inference and model parameter counts.
 - `docs/METHOD_TO_CODE.md` — equation-by-equation implementation map
 - `docs/REPRODUCIBILITY.md` — settings, seeds and implementation choices
 - `docs/DATA.md` — directory layout and annotation encoding
-- `docs/RUN_OSPAN.md` — complete PowerShell commands for every stage
+- `docs/RUN_Pd_Pv_Sa.md` — complete PowerShell commands for every stage
 
 ---
 

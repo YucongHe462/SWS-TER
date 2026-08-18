@@ -1,7 +1,7 @@
-# OSPAN data layout
+# Pd_Pv_Sa data layout
 
 ```text
-ospan_sws_ter/
+Pd_Pv_Sa/
 |-- test_image/
 |-- test_annotation/             # DOTA-style polygon text files
 `-- semi_ratio_20/
@@ -12,7 +12,7 @@ ospan_sws_ter/
         `-- unlabel_annotation/  # empty files for unlabeled images
 ```
 
-Set `SWS_TER_DATA_ROOT` to the absolute `ospan_sws_ter` directory before
+Set `SWS_TER_DATA_ROOT` to the absolute `Pd_Pv_Sa` directory before
 running configuration, training, or evaluation commands. The released local
 split contains 452 labeled training images, 1,810 unlabeled training images,
 and 565 test images. Images use the `.jpg` suffix.
@@ -28,8 +28,9 @@ analysis.
 have empty annotation files and are used by the unlabeled branch.
 
 The weak-supervision type is encoded in the second label column inside the
-training pipeline: `0=RBox`, `1=HBox`, `2=Point`. Because the provided OSPAN
-annotations are horizontal boxes, the primary OSPAN configuration sets
+training pipeline: `0=RBox`, `1=HBox`, `2=Point`. Because the provided
+`Pd_Pv_Sa` annotations are horizontal boxes, the primary `Pd_Pv_Sa`
+configuration sets
 `hbox_proportion=1.0`. Change `point_proportion` and `hbox_proportion` only
 when reproducing a different supervision experiment.
 

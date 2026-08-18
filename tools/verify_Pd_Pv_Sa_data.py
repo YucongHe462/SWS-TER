@@ -1,4 +1,4 @@
-"""Validate an OSPAN sparse semi-supervised split without modifying it."""
+"""Validate a Pd_Pv_Sa sparse semi-supervised split without modifying it."""
 
 from __future__ import annotations
 
@@ -87,7 +87,7 @@ def inspect_split(root: Path, name: str, image_rel: str, annotation_rel: str,
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description='Validate OSPAN images and DOTA-style annotations.')
+        description='Validate Pd_Pv_Sa images and DOTA-style annotations.')
     parser.add_argument('--data-root', required=True)
     parser.add_argument('--class-name', default='ship')
     parser.add_argument(
@@ -122,14 +122,14 @@ def main():
         if actual != expected:
             raise ValueError(f'expected split counts {expected}, got {actual}')
 
-    print(f'OSPAN root: {root}')
+    print(f'Pd_Pv_Sa root: {root}')
     for name, summary in summaries.items():
         print(
             f"{name:9s}: images={summary['images']}, "
             f"objects={summary['objects']}, "
             f"empty_annotations={summary['empty_annotations']}, "
             f"sample={summary['sample_size']} {summary['sample_mode']}")
-    print('OSPAN validation passed')
+    print('Pd_Pv_Sa validation passed')
 
 
 if __name__ == '__main__':

@@ -10,7 +10,7 @@ import torchvision.transforms as transforms
 from copy import deepcopy
 
 data_root = os.path.abspath(os.environ.get(
-    'SWS_TER_DATA_ROOT', './data/ospan_sws_ter')).replace('\\', '/') + '/'
+    'SWS_TER_DATA_ROOT', './data/Pd_Pv_Sa')).replace('\\', '/') + '/'
 acpc_prior_file = os.path.abspath(os.environ.get(
     'SWS_TER_ACPC_PRIOR', './work_dirs/acpc/acpc_priors.json')).replace(
         '\\', '/')
@@ -193,7 +193,7 @@ sup_pipeline = [
     dict(
         type='ConvertSparseAnnotations',
         point_proportion=0.0,
-        # OSPAN source annotations are horizontal boxes.
+        # Pd_Pv_Sa source annotations are horizontal boxes.
         hbox_proportion=1.0,
         modify_labels=True,
         version=angle_version),
